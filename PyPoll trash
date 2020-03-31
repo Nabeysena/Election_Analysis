@@ -1,0 +1,38 @@
+
+#2. Dictionary where the county (key) and the votes cast (value)
+
+#Add our dependencies.
+import csv
+import os
+
+#Assign a variable to load a file from a path.
+file_to_load=os.path.join("Resources/election_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("analysis", "election_analysis.txt")
+
+#Counties and county votes
+counties=[]
+#Declare the empty dictionary.
+county_votes={}
+
+#Open the election results and read the file.
+with open(file_to_load) as election_data:
+    file_reader = csv.reader(election_data)
+
+    #Read the header row.
+    headers = next(file_reader)
+
+    #Print each row in the CSV file.
+    for row in file_reader:
+        #Print the counties from each row.
+        county_name = row[2]
+
+    if county_name not in counties:
+        #Add county name to counties.
+        counties.append(county_name)
+
+    #Begin tracking county's vote count.
+    county_votes[county_name]=0
+
+#Print the county vote dictionary.
+print(county_votes)
