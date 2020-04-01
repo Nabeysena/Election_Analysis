@@ -1,4 +1,4 @@
-#PyPoll
+#PyPoll Challenge
 
 # Add our dependencies.
 import csv
